@@ -21,6 +21,11 @@ public:
 		SaveMap = _InitMap;
 		SaveMapSize = _MapSize;
 	}
+	int GetMapSize()
+	{
+		return SaveMapSize;
+	}
+	
 	void PlayerToMapTile(Player* _player);
 	void SetMapTile(string _Tile);
 protected:

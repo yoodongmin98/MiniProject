@@ -21,6 +21,15 @@ GameCore::~GameCore()
 
 }
 
+void GameCore::Preparation()
+{
+	cout << "Press Any Key";
+	int Start = _getch();
+	if (Start)
+		StartValue = true;
+	system("cls");
+}
+
 void GameCore::GameInit(int _MapSize)
 {
 	MyMap.resize(_MapSize);
@@ -32,6 +41,7 @@ void GameCore::GameInit(int _MapSize)
 	Edit->SetMapTile("бс");
 	Edit->SaveMaps(MyMap, _MapSize);
 }
+
 void GameCore::GameStart()
 {
 	Preparation();
@@ -40,10 +50,11 @@ void GameCore::GameStart()
 	{
 		Edit->PrintMap(player);
 		Edit->PlayerToMapTile(player);
-		player->InputPlayerMove();
+		player->InputPlayerMove(Edit);
 		system("cls");
 	}
 }
+
 void GameCore::GameEnd()
 {
 	if (nullptr != Edit)
@@ -58,11 +69,3 @@ void GameCore::GameEnd()
 	}
 }
 
-void GameCore::Preparation()
-{
-	cout << "Press Any Key";
-	int Start = _getch();
-	if (Start)
-		StartValue = true;
-	system("cls");
-}

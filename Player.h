@@ -2,14 +2,14 @@
 
 using namespace std;
 
-
+class MapEditor;
 class Player 
 {
 public:
 	Player();
 	~Player();
 	inline void SetPlayerChar(string _playerchar);
-	void MovePlayerPos(int _X, int _Y);
+	void MovePlayerPos(int _X, int _Y, MapEditor* _Maps);
 
 	int GetPlayerXPos()
 	{
@@ -23,7 +23,8 @@ public:
 	{
 		return playerchar;
 	}
-	void InputPlayerMove();
+	void InputPlayerMove(MapEditor* _Maps);
+	bool Moveable(int _X, int _Y, MapEditor* _Maps);
 protected:
 private:
 	string playerchar = "¡Ý";
