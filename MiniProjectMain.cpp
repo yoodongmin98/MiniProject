@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-	GameCore* Core = new GameCore;
+	std::shared_ptr<GameCore> Core = make_shared<GameCore>();
 	Core->GameInit(15); //Input MapSize
 	Core->GameStart();
 	Core->GameEnd();
